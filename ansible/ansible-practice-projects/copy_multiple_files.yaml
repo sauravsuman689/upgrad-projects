@@ -1,0 +1,17 @@
+---
+- hosts: ec2
+  become: true
+  tasks:
+  - name: Copy multiple files from ansible host to remote host
+    copy:
+      src: "/tmp/manyfiles/{{ item }}"
+      dest: "/tmp/remoteservfiles/"
+    register: copy_output
+    loop:
+     - file1.txt
+     - file2.txt
+     - file3.txt
+     - file4.txt 
+     - file5.txt
+
+  - debug: var=copy_output

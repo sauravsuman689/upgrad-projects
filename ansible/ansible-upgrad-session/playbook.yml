@@ -1,0 +1,6 @@
+---
+- name: test ec2 connection
+  hosts: ec2
+  tasks:
+    - name: Ping the host
+      ansible.builtin.ping:

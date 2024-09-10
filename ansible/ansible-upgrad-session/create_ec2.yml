@@ -1,0 +1,24 @@
+---
+- name: Launch EC2 instance
+  hosts: ec2
+  gather_facts: no
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Launch an EC2 instance
+      amazon.aws.ec2_instance:
+        name: ec2-ansible-instance
+        key_name: upgrad_aws_key
+        region: us-east-1
+        image_id: ami-0e86e20dae9224db8
+        instance_type: t2.micro
+        count: 1
+        wait: yes
+        tags:
+          Name: ec2-ansible-instance
+      register: ec2
+
+    - name: Debug EC2 instance details
+      debug:
+        var: ec2
+

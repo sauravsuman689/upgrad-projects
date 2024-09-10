@@ -1,0 +1,11 @@
+---
+- name: Print hostname of destination VM
+  hosts: all
+  tasks:
+    - name: Gather facts about the remote hosts
+      ansible.builtin.setup:
+
+    - name: Print the hostname
+      ansible.builtin.debug:
+        msg: "The hostname of the VM is {{ ansible_hostname }}"
+

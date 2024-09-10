@@ -1,0 +1,8 @@
+---
+- name: Installation of mysql database on ubuntu server
+  hosts: ec2
+  become: true
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+    - role: mysql_on_ubuntu

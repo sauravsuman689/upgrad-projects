@@ -1,0 +1,3 @@
+---
+# vars file for mysql_on_ubuntu
+mysql_root_password: "DevOps123"
