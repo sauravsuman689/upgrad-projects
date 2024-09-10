@@ -1,0 +1,29 @@
+version: '3'
+services:
+ client:
+   build: ./client
+   container_name: client_app
+   ports:
+     - "80:8000"
+   networks:
+     - client-net
+ server:
+   build: ./server
+   container_name: server_app
+   depends_on:
+     - mongoinstance
+   ports:
+     - "3000:3000"
+   networks:
+     - client-net
+     - server-net
+ mongoinstance:
+   image : mongo:5.0
+   container_name: mongodb
+   volumes:
+     - /home/ubuntu/mongodb/db:/data/db
+   networks:
+     - server-net
+networks:
+ client-net:
+ server-net:
