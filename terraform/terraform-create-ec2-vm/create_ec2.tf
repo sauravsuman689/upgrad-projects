@@ -10,7 +10,6 @@ resource "aws_subnet" "awsplatform_subnet" {
   vpc_id            = aws_vpc.awsplatform_vpc.id
   cidr_block        = "172.32.10.0/24"
   map_public_ip_on_launch = true
-  availability_zone = "us-east-1a"
 
   tags = {
     Name = "awsplatform-env"
