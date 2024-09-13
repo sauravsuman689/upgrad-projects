@@ -1,5 +1,7 @@
 # This project is for building a nginx based 3 tier application using terraform in aws
 
+NOTE - There is no database used in this project. Nginx as webserver is configured which will be access using the LB DNS name.
+
 
 ```
 
