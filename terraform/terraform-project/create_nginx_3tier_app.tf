@@ -72,6 +72,8 @@ resource "aws_security_group" "nginx_private_sg" {
 
 # Create an ubuntu instance and install nginx
 resource "aws_instance" "nginx_app" {
+  ami           = "ami-0e86e20dae9224db8"
+  instance_type = "t2.micro"
   subnet_id     = aws_subnet.nginx_private_subnet1.id
   security_groups = [aws_security_group.nginx_private_sg.id]
 
